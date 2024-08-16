@@ -27,6 +27,17 @@ function App() {
     }
   };
 
+  const pickWinner = async () => {
+    if (contract) {
+      try {
+        await contract.methods.pickWinner().send({ from: account });
+        console.log('Winner picked successfully');
+      } catch (error) {
+        console.error('Error picking winner:', error);
+      }
+    }
+  }
+
   const enter = async () => {
     if (contract && newEntryFee) {
       try {
@@ -141,6 +152,9 @@ function App() {
           ))}
         </ol>
       </div>
+      {isManager && (
+        <button onClick={pickWinner}>Pick Winner</button>
+      )}
     </div>
   );
 }
