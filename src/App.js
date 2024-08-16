@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
-import abi from './abi.json'; // Ensure this is an array
+import abi from './abi.json';
 
 function App() {
   const [account, setAccount] = useState(null);
